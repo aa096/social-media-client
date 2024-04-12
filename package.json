@@ -6,7 +6,7 @@
   "scripts": {
     "build": "sass src/scss:dist/css",
     "start": "sass --watch src/scss:dist/css & live-server",
-    "format": "prettier -w **/*.js",
+    "format": "prettier -w src/**/*.js",
     "lint": "eslint src/**/*.js"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
   "devDependencies": {
     "@eslint/js": "^9.0.0",
     "eslint": "^8.57.0",
+    "eslint-plugin-jest": "^28.2.0",
     "globals": "^15.0.0",
     "live-server": "^1.2.2",
     "prettier": "^3.2.5",
