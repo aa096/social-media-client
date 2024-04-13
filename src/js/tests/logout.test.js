@@ -1,7 +1,7 @@
-import * as storage from "../../storage/index.js";
-import { logout } from "./logout.js";
+import * as storage from "../storage/index.js";
+import { logout } from "../api/auth/logout.js";
 
-jest.mock("../../storage/index.js", () => ({
+jest.mock("../storage/index.js", () => ({
   remove: jest.fn(),
 }));
 
