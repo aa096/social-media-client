@@ -11,23 +11,21 @@ describe("Authentication", () => {
     cy.showLoginForm();
   });
 
-  it("allows a valid and registered user to login", () => {
+  it("allows a valid and registered user to login and saves token", () => {
     cy.showLoginForm();
-
     cy.loginWithTestUser();
-
     cy.isLoggedIn();
   });
+});
 
-  it("allows a valid user to log out", () => {
+describe("Invalid Credentials", () => {
+  beforeEach(() => {
+    cy.visitHome();
+  });
+
+  it("displays an error message if invalid credentials are given", () => {
     cy.showLoginForm();
-
-    cy.loginWithTestUser();
-
-    cy.isLoggedIn();
-
-    cy.logOut();
-
-    cy.isLoggedOut();
+    cy.invalidLogin();
+    cy.alertIfInvalid();
   });
 });

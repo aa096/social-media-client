@@ -66,6 +66,20 @@ Cypress.Commands.add("isLoggedOut", () => {
   });
 });
 
+Cypress.Commands.add("invalidLogin", () => {
+  cy.fixture("example").then((user) => {
+    cy.login(user.email, "invalidPassword");
+  });
+});
+
+Cypress.Commands.add("alertIfInvalid", () => {
+  cy.on("window:alert", (text) => {
+    expect(text).to.contain(
+      "Either your username was not found or your password is incorrect",
+    );
+  });
+});
+
 Cypress.Commands.add("viewFeedPage", () => {
   cy.visitHome();
   cy.showLoginForm();
