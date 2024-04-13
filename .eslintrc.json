@@ -18,7 +18,7 @@
       "rules": { "jest/prefer-expect-assertions": "off" }
     },
     {
-        "files": ["**/*.cy.js"],
+        "files": ["**/*.cy.js", "cypress.config.js"],
         "env": { "cypress/globals": true },
         "plugins": ["cypress"],
         "extends": ["plugin:cypress/recommended"],
@@ -27,5 +27,8 @@
           "no-unused-vars": "off"
         }
     }
-  ]
+  ], 
+  "rules": {
+    "no-unused-vars": "warn"
+  }
 }
