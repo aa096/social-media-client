@@ -18,12 +18,13 @@ describe("Login", () => {
     fetch.mockResolvedValueOnce({
       ok: true,
       json: () =>
-        Promise.resolve({ accessToken: "mockToken", name: "mockName" }),
+        Promise.resolve({ accessToken: "testToken", name: "testName" }),
     });
 
-    await login("test@noroff.com", "testpassword");
+    await login();
 
-    expect(storage.save).toHaveBeenCalledWith("token", "mockToken");
-    expect(storage.save).toHaveBeenCalledWith("profile", { name: "mockName" });
+    expect(storage.save).toHaveBeenCalledTimes(2);
+    expect(storage.save).toHaveBeenCalledWith("token", "testToken");
+    expect(storage.save).toHaveBeenCalledWith("profile", { name: "testName" });
   });
 });
