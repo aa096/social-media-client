@@ -45,7 +45,7 @@ Cypress.Commands.add("login", (email, password) => {
 
 Cypress.Commands.add("loginWithTestUser", () => {
   cy.fixture("example").then((user) => {
-    cy.login(user.email, Cypress.env("password"));
+    cy.login(user.email, Cypress.env("USER_PASSWORD"));
   });
 });
 
