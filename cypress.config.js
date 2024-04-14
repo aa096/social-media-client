@@ -8,6 +8,6 @@ module.exports = defineConfig({
     },
   },
   env: {
-    password: process.env.USER_PASSWORD,
+    USER_PASSWORD: process.env.USER_PASSWORD,
   },
 });
