@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import { USER_PASSWORD } from "../support/example.js";
+
 Cypress.Commands.add("visitHome", () => {
   cy.visit("/");
   cy.wait(500);
@@ -45,7 +47,7 @@ Cypress.Commands.add("login", (email, password) => {
 
 Cypress.Commands.add("loginWithTestUser", () => {
   cy.fixture("example").then((user) => {
-    cy.login(user.email, Cypress.env("USER_PASSWORD"));
+    cy.login(user.email, USER_PASSWORD);
   });
 });
 
